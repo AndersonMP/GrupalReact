@@ -36,6 +36,15 @@ public class Ruta {
 		this.rutaDestino = rutaDestino;
 		this.fechaFormateada = fechaFormateada;
 	}
+	
+	
+
+	public Ruta(String rutaOrigen, String rutaDestino, Timestamp rutaHorario) {
+		super();
+		this.rutaOrigen = rutaOrigen;
+		this.rutaDestino = rutaDestino;
+		this.rutaHorario = rutaHorario;
+	}
 
 	public int getRuta_id() {
 		return ruta_id;

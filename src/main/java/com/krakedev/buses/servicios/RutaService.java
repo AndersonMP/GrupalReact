@@ -2,7 +2,9 @@ package com.krakedev.buses.servicios;
 
 import java.util.ArrayList;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -31,4 +33,17 @@ public class RutaService {
 
 		}
 
+		 @Path("insertar")
+		    @POST
+		    @Consumes(MediaType.APPLICATION_JSON)
+		    public Response insertarRuta(Ruta ruta) {
+		        RutaBDD rutaBDD = new RutaBDD();
+		        try {
+		            rutaBDD.insertarRuta(ruta);
+		            return Response.ok().build();
+		        } catch (KrakedevExceptions e) {
+		            e.printStackTrace();
+		            return Response.serverError().build();
+		        }
+		    }
 }
