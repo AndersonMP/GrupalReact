@@ -42,4 +42,25 @@ public class BusBDD {
 
 		return buses;
 	}
+	
+	
+	public void insertarBus(Bus bus) throws KrakedevExceptions {
+	    Connection con = null;
+	    PreparedStatement ps = null;
+	    try {
+	        con = ConexionBDD.obtenerConexion(); 
+	        String sql = "INSERT INTO bus (bus_cap_max) VALUES (?)";
+	        ps = con.prepareStatement(sql);
+	        ps.setInt(1, bus.getBusCapMax()); 
+	        ps.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new KrakedevExceptions("Error al insertar el bus: " + e.getMessage());
+	    } finally {
+	        if (ps != null) try { ps.close(); } catch (SQLException e) { e.printStackTrace(); }
+	        if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+	    }
+	}
+
 }
+

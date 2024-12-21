@@ -11,6 +11,12 @@
   <url>http://maven.apache.org</url>
 
   <dependencies>
+	  <dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.6.0</version> <!-- Ajusta la versión según la más reciente -->
+</dependency>
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
